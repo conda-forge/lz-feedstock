@@ -1,5 +1,5 @@
 {% set name = "lz" %}
-{% set version = "0.11.1" %}
+{% set version = "3.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/lz-{{ version }}.tar.gz
-  sha256: 6b816276e140389b93234da7b6d767380b9a9eba50c725a9da471d0bf5a0a007
+  sha256: 37f9b0cdb4c0ed2e6976d829bb7f62d676c79b40575b5c809855057bee67f0e4
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
