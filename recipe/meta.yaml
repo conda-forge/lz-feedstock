@@ -20,7 +20,7 @@ requirements:
     - pip
   run:
     - python >=3.7
-    - paradigm <1.0,>=0.6.2
+    - paradigm <5.0,>=4.0.0
     - reprit <1.0,>=0.8.0
     - typing-extensions <5.0,>=4.4.0
 
