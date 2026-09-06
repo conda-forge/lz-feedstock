@@ -1,0 +1,48 @@
+schema_version: 1
+
+context:
+  name: lz
+  version: "3.0.0"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/lz-${{ version }}.tar.gz
+  sha256: 37f9b0cdb4c0ed2e6976d829bb7f62d676c79b40575b5c809855057bee67f0e4
+
+build:
+  number: 3
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - paradigm <5.0,>=4.0.0
+    - reprit <1.0,>=0.8.0
+    - typing-extensions <5.0,>=4.4.0
+
+tests:
+  - python:
+      imports:
+        - lz
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  summary: Functional utilities.
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/lycantropos/lz/
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
